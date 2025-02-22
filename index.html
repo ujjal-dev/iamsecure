@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IamSecure - Digital Protection Services</title>
+    <meta name="description" content="Professional digital security solutions for individuals and businesses. Protect your online presence with our expert services.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stripe Integration -->
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body class="bg-aqua-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt text-blue-600 text-2xl mr-2"></i>
+                    <span class="text-xl font-bold">IamSecure</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="hover:text-blue-600">Features</a>
+                    <a href="#pricing" class="hover:text-blue-600">Pricing</a>
+                    <a href="#contact" class="hover:text-blue-600">Contact</a>
+                    <button onclick="toggleAuthModal()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="text-center py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-6">Protect Your Digital Life</h1>
+            <p class="text-xl text-gray-600 mb-8">Comprehensive security solutions for individuals and businesses</p>
+            <button onclick="toggleAuthModal()" class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-blue-700">
+                Start Free Trial
+            </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div class="text-center p-6">
+                <i class="fas fa-lock text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Real-time Protection</h3>
+                <p class="text-gray-600">24/7 monitoring and threat detection</p>
+            </div>
+            <div class="text-center p-6">
+                <i class="fas fa-lock text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Self protection</h3>
+                <p class="text-gray-600">Learning How To Protect</p>
+            </div>
+            <div class="text-center p-6">
+                <i class="fas fa-lock text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Cyber protection</h3>
+                <p class="text-gray-600">Monitoring Cyber crime near you</p>
+            </div>
+            <div class="text-center p-6">
+                <i class="fas fa-lock text-4xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Live Support</h3>
+                <p class="text-gray-600">Guide Every time</p>
+            </div>
+            <!-- Add more features -->
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">Basic Protection</h3>
+                <p class="text-4xl font-bold mb-4">₹499<span class="text-lg text-gray-500">/2mo</span></p>
+                <ul class="mb-8">
+                    <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Malware Protection</li>
+                    <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Learn How to Secure</li>
+                    <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>2 Person</li>
+                    <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i></li>
+                    <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i></li>
+                    <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i></li>
+                    <!-- Add more features -->
+                </ul>
+                <button onclick="showSubscriptionForm('basic')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                    Choose Plan
+                </button> 
+             
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-4">Medium Protection</h3>
+            <p class="text-4xl font-bold mb-4">₹999<span class="text-lg text-gray-500">/2mo</span></p>
+            <ul class="mb-8">
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Malware Protection</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Learn how to Secure</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Cyber crime Protection</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Priority Customer Services</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>3 Person</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i></li>
+                <!-- Add more features -->
+            </ul>
+            <button onclick="showSubscriptionForm('basic')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                Choose Plan
+            </button>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-4">Extrem Protection</h3>
+            <p class="text-4xl font-bold mb-4">₹1499<span class="text-lg text-gray-500">/2mo</span></p>
+            <ul class="mb-8">
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Malware Protection</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Learn how to Secure</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Cyber crime Protection</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Fraud Protection</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Instant Customer Services</li>
+                <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>4 Person</li>
+                <!-- Add more features -->
+            </ul>
+            <button onclick="showSubscriptionForm('basic')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                Choose Plan
+            </button>
+            </div>
+            <!-- Add more plans -->
+        </div>
+    </section>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg w-96">
+            <div class="flex justify-between mb-6">
+                <h2 class="text-xl font-bold">Get Started</h2>
+                <button onclick="toggleAuthModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="authForms">
+                <!-- Login Form -->
+                <form id="loginForm" class="space-y-4">
+                    <input type="email" placeholder="Email" class="w-full p-2 border rounded">
+                    <input type="password" placeholder="Password" class="w-full p-2 border rounded">
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                        Login
+                    </button>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="hidden space-y-4">
+                    <input type="text" placeholder="Full Name" class="w-full p-2 border rounded">
+                    <input type="email" placeholder="Email" class="w-full p-2 border rounded">
+                    <input type="password" placeholder="Password" class="w-full p-2 border rounded">
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                        Create Account
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscription Form -->
+    <div id="subscriptionModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg w-96">
+            <h2 class="text-xl font-bold mb-4">Subscribe Now</h2>
+            <div id="cardElement" class="mb-4"></div>
+            <button onclick="processPayment()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                Complete Subscription
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Authentication Handling
+        let currentUser = null;
+        const stripe = Stripe('your_stripe_public_key');
+
+        function toggleAuthModal() {
+            const modal = document.getElementById('authModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function showSubscriptionForm(plan) {
+            document.getElementById('subscriptionModal').classList.remove('hidden');
+            // Initialize Stripe Elements
+            const elements = stripe.elements();
+            const cardElement = elements.create('card');
+            cardElement.mount('#cardElement');
+        }
+
+        async function processPayment() {
+            const { error, paymentMethod } = await stripe.createPaymentMethod({
+                type: 'card',
+                card: cardElement,
+            });
+
+            if (error) {
+                alert(error.message);
+            } else {
+                // Handle successful payment
+                alert('Subscription successful!');
+                window.location.href = '/dashboard';
+            }
+        }
+
+        // Form Validation
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // Handle user registration
+        });
+
+        // Security Features (Example)
+        function startSecurityScan() {
+            // Implement security scanning logic
+        }
+    </script>
+</body>
+</html>
