@@ -132,37 +132,74 @@
     </section>
 
     <!-- Auth Modal -->
-    <div id="authModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div class="bg-white p-8 rounded-lg w-96">
-            <div class="flex justify-between mb-6">
-                <h2 class="text-xl font-bold">Get Started</h2>
-                <button onclick="toggleAuthModal()" class="text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-times"></i>
+    <!-- Auth Modal -->
+<div id="authModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg w-96">
+        <div class="flex justify-between mb-6">
+            <h2 id="modalTitle" class="text-xl font-bold">Get Started</h2>
+            <button onclick="toggleAuthModal()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    
+        <div id="authForms">
+            <!-- Login Form -->
+            <form id="loginForm" class="space-y-4">
+                <input type="email" placeholder="Email" class="w-full p-2 border rounded">
+                <input type="password" placeholder="Password" class="w-full p-2 border rounded">
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                    Login
                 </button>
-            </div>
-            
-            <div id="authForms">
-                <!-- Login Form -->
-                <form id="loginForm" class="space-y-4">
-                    <input type="email" placeholder="Email" class="w-full p-2 border rounded">
-                    <input type="password" placeholder="Password" class="w-full p-2 border rounded">
-                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-                        Login
-                    </button>
-                </form>
+                <p class="text-sm text-center">Don't have an account? <button type="button" class="text-blue-600" onclick="toggleForms()">Sign Up</button></p>
+            </form>
 
-                <!-- Signup Form -->
-                <form id="signupForm" class="hidden space-y-4">
-                    <input type="text" placeholder="Full Name" class="w-full p-2 border rounded">
-                    <input type="email" placeholder="Email" class="w-full p-2 border rounded">
-                    <input type="password" placeholder="Password" class="w-full p-2 border rounded">
-                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-                        Create Account
-                    </button>
-                </form>
-            </div>
+            <!-- Signup Form -->
+            <form id="signupForm" class="space-y-4 hidden">
+                <input type="text" placeholder="Full Name" class="w-full p-2 border rounded">
+                <input type="email" placeholder="Email" class="w-full p-2 border rounded">
+                <input type="password" placeholder="Password" class="w-full p-2 border rounded">
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
+                    Create Account
+                </button>
+                <p class="text-sm text-center">Already have an account? <button type="button" class="text-green-600" onclick="toggleForms()">Login</button></p>
+            </form>
         </div>
     </div>
+</div>
+
+<!-- Buttons to Open Modal -->
+<div class="flex justify-center space-x-4 mt-4">
+    <button onclick="toggleAuthModal('login')" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Login</button>
+    <button onclick="toggleAuthModal('signup')" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Sign Up</button>
+</div>
+
+<!-- JavaScript -->
+<script>
+    function toggleAuthModal(formType = 'login') {
+        const modal = document.getElementById('authModal');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const modalTitle = document.getElementById('modalTitle');
+        
+        modal.classList.toggle('hidden');
+        if (formType === 'signup') {
+            signupForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+            modalTitle.textContent = 'Sign Up';
+        } else {
+            loginForm.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+            modalTitle.textContent = 'Get Started';
+        }
+    }
+
+    function toggleForms() {
+        document.getElementById('loginForm').classList.toggle('hidden');
+        document.getElementById('signupForm').classList.toggle('hidden');
+        document.getElementById('modalTitle').textContent = 
+            document.getElementById('signupForm').classList.contains('hidden') ? 'Get Started' : 'Sign Up';
+    }
+</script>
 
     <!-- Subscription Form -->
     <div id="subscriptionModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
